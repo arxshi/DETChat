@@ -6,3 +6,28 @@ prefix: DETChat
 softdepend: [PlaceholderAPI]
 authors: [arashi]
 description: digital etta technologies' chat plugin for general purposes
+
+commands:
+  chat:
+    description: Main command for configuration purposes
+  me:
+    aliases:
+      - gme
+      - do
+      - gdo
+      - try
+      - gtry
+  pm:
+    usage: /лс <игрок> <сообщение>
+    aliases:
+      - msg
+      - m
+      - лс
+      - w
+      - whisper
+      - шепнуть
+  reply:
+    aliases:
+      - r
+      - ответ
+      - ответитьЫ

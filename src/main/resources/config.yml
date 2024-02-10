@@ -1,0 +1,29 @@
+options:
+  prefix: "[MT] &r"
+  message-prefix-color: "&6"
+  error-prefix-color: "&c"
+
+chat:
+  pm:
+    message-divider: ": "
+    player-divider: " → "
+    symbol-color: "&7"
+    player-name-color: "&6"
+  format:
+    global: "&7[&6MT&7] &r"
+    local: "&7[&bL&7] &r"
+  prefix: ""
+  player-name-in-hover: "&f%rpchar_real_name%\n&7%rpchar_char_role% %rpchar_char_name%&r"
+  player-name-in-chat: "&f%rpchar_char_name%"
+  divider: "&7: "
+  local-distance: 128
+  first-join-message: "впервые зашел на сервер!"
+  join-message: "зашел на сервер"
+  quit-message: "вышел с сервера"
+
+messages:
+  no-permission: "У вас недостаточно прав!"
+  only-for-players: "Команда доступна только игрокам!"
+  empty-message: "Нельзя отправить пустое сообщение!"
+  wrong-usage: "Неправильное использование команды!"
+  dont-have-conversation: "Вы не имеете действующего диалога!"
