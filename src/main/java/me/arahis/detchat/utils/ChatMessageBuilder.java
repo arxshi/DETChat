@@ -34,7 +34,7 @@ public class ChatMessageBuilder {
                 .append("\n\n")
                 .append(tH.color("&7Наиграно: " + PlaceholderAPI.setPlaceholders(player, "%playtime_time_hours%") + " ч."))
                 .append("\n\n")
-                .append(tH.color("&aНажмите, чтобы написать"));
+                .append(tH.color("&aНажмите, чтобы написать."));
 
         return builder.create();
     }
