@@ -8,7 +8,10 @@ import me.arahis.detchat.utils.TextHandler;
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.*;
@@ -104,9 +107,9 @@ public class PMCommand implements CommandExecutor, TabCompleter {
                 .append(messageComponent);
 
         ComponentBuilder toTarget = new ComponentBuilder();
-        toTarget.append(tH.color(playerPrefix + playerColor + senderName))
-                .append(tH.color(symbolColor + playerDivider))
-                .append(tH.color(playerColor + "Вы"))
+        toTarget.append(tH.color(playerPrefix + playerColor + senderName + symbolColor + playerDivider + playerColor + "Вы"))
+                .event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/r "))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(tH.color("&aНажмите, чтобы ответить."))))
                 .append(tH.color(symbolColor + messageDivider))
                 .append(messageComponent);
 
