@@ -20,8 +20,17 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ChatListener implements Listener {
+    private final DETChatPlugin plugin;
+    private final ChatMessageBuilder cMB;
+    private final TextHandler tH;
 
-    @EventHandler
+    public ChatListener() {
+        plugin = DETChatPlugin.getPlugin();
+        cMB = plugin.getChatMessageBuilder();
+        tH = plugin.getTextHandler();
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onAsyncChat(AsyncPlayerChatEvent event) {
 
         if(event.isCancelled()) return;
