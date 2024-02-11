@@ -11,6 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -33,15 +34,12 @@ public class ChatListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onAsyncChat(AsyncPlayerChatEvent event) {
 
-        if(event.isCancelled()) return;
+        if (event.isCancelled()) return;
 
         event.getRecipients().clear();
 
         ComponentBuilder builder = new ComponentBuilder();
 
-        DETChatPlugin plugin = DETChatPlugin.getPlugin();
-        ChatMessageBuilder cMB = plugin.getChatMessageBuilder();
-        TextHandler tH = plugin.getTextHandler();
 
         String message = event.getMessage();
         Player player = event.getPlayer();
@@ -65,7 +63,6 @@ public class ChatListener implements Listener {
             recipients = new ArrayList<>(Bukkit.getOnlinePlayers());
             message = message.substring(1);
         } else {
-
             format = Config.getString("chat.format.local");
             event.setCancelled(true);
 
