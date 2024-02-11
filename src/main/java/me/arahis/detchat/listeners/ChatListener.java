@@ -89,32 +89,7 @@ public class ChatListener implements Listener {
 
         Set<Player> mentionedPlayers = plugin.getMentionHandler().getPlayerListFromMessage(message);
 
-        for (Player p : mentionedPlayers) {
-            StringBuilder sb = new StringBuilder();
-            for(String s : message.split(" ")) {
-                if(s.equals(p.getName())) {
-                    sb.append(tH.color("&6" + p.getName() + "&r")).append(" ");
-                } else {
-                    sb.append(s).append(" ");
-                }
-            }
-
-            String messageForMentioned = sb.toString().trim();
-
-            if(isColored) {
-                messageForMentioned = tH.color(messageForMentioned);
-            }
-
-            p.getWorld().playSound(p, Sound.UI_BUTTON_CLICK, 1f, 1f);
-
-            p.spigot().sendMessage(new ComponentBuilder().append(format)
-                    .append(playerPrefix)
-                    .append(playerComponent)
-                    .append(divider)
-                    .reset()
-                    .append(cMB.buildMessageComponent(messageForMentioned))
-                    .create());
-        }
+        sendMessageForMentionedPlayers(isColored, message, mentionedPlayers, playerPrefix, format, divider, playerComponent);
 
         toSend = builder.append(format)
                 .append(playerPrefix)
@@ -132,6 +107,35 @@ public class ChatListener implements Listener {
 
         if (recipients.isEmpty() || recipients.size() == 1) {
             tH.sendMessage(player, tH.color("&cВас никто не услышал!"));
+        }
+    }
+
+    private void sendMessageForMentionedPlayers(boolean isColored, String message, Set<Player> mentionedPlayers, String playerPrefix, String format, String divider, BaseComponent[] playerComponent) {
+        for (Player p : mentionedPlayers) {
+            StringBuilder sb = new StringBuilder();
+            for (String s : message.split(" ")) {
+                if (s.equals(p.getName())) {
+                    sb.append(tH.color("&6" + p.getName() + "&r")).append(" ");
+                } else {
+                    sb.append(s).append(" ");
+                }
+            }
+
+            String messageForMentioned = sb.toString().trim();
+
+            if (isColored) {
+                messageForMentioned = tH.color(messageForMentioned);
+            }
+
+            p.getWorld().playSound(p, Sound.UI_BUTTON_CLICK, 1f, 1f);
+
+            p.spigot().sendMessage(new ComponentBuilder().append(format)
+                    .append(playerPrefix)
+                    .append(playerComponent)
+                    .append(divider)
+                    .reset()
+                    .append(cMB.buildMessageComponent(messageForMentioned))
+                    .create());
         }
     }
 }
