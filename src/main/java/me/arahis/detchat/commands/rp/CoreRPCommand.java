@@ -89,7 +89,7 @@ public class CoreRPCommand implements CommandExecutor, TabCompleter {
                     .reset()
                     .append(messageComponent)
                     .italic(true)
-                    .append(" *")
+                    .append("*")
                     .reset();
         }
 
@@ -97,7 +97,7 @@ public class CoreRPCommand implements CommandExecutor, TabCompleter {
             builder.append("* ")
                     .append(messageComponent)
                     .italic(true)
-                    .append(" *")
+                    .append("*")
                     .reset()
                     .append(" (")
                     .append(playerPrefix)
@@ -112,7 +112,6 @@ public class CoreRPCommand implements CommandExecutor, TabCompleter {
                     .append(" ")
                     .reset()
                     .append(messageComponent)
-                    .append(" ")
                     .reset()
                     .append(getResultFromTry());
 
